@@ -19,12 +19,11 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-<<<<<<< HEAD
+
 <img src="./src/img/Screenshot_1-3-2024_143946_localhost.jpeg">
 <img src="./src/img/Screenshot_1-3-2024_144013_localhost.jpeg">
 <img src="./src/img/Screenshot_1-3-2024_144025_localhost.jpeg">
 <img src="./src/img/Screenshot_1-3-2024_144429_localhost.jpeg">
 <img src="./src/img/Screenshot_1-3-2024_14448_localhost.jpeg">
-=======
-<img src="https://th.bing.com/th/id/OIP.DXUvOFOAWutYGD3JYuUS0gHaEU?rs=1&pid=ImgDetMain">
->>>>>>> 88a8091c6cc763d9037d567e4701eaa6bd161dc7
+
+
