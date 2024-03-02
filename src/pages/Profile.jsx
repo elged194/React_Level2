@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import Moment from "react-moment";
 import { deleteUser } from "firebase/auth";
 import Lodinge from "../comp/Lodinge";
+import ErrorPage from "./ErrorPage";
 // --------------------------------------------------
 
 const Profile = () => {
@@ -47,7 +48,7 @@ const Profile = () => {
   if (error) {
     return (
       <div>
-        <p>Error: {error}</p>
+        <ErrorPage/>
       </div>
     );
   }

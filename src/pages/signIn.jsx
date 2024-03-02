@@ -12,6 +12,7 @@ import {
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import ErrorPage from "./ErrorPage";
 // -------------------------------------------------
 
 const SignIn = () => {
@@ -109,7 +110,7 @@ const SignIn = () => {
   if (error) {
     return (
       <div>
-        <p>Error: {error}</p>
+        <ErrorPage/>
       </div>
     );
   }

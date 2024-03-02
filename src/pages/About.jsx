@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/Confog";
 import Lodinge from "../comp/Lodinge";
+import ErrorPage from "./ErrorPage";
 // ---------------------------------------------------------
 
 const About = () => {
@@ -34,7 +35,7 @@ const About = () => {
   if (error) {
     return (
       <div>
-        <p>Error: {error}</p>
+        <ErrorPage/>
       </div>
     );
   }

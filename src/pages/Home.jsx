@@ -7,6 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
 import Lodinge from "../comp/Lodinge";
+import ErrorPage from "./ErrorPage";
 // -----------------------------------------------
 
 const Home = () => {
@@ -26,7 +27,7 @@ const Home = () => {
   if (error) {
     return (
       <div>
-        <p>Error: {error}</p>
+        <ErrorPage/>
       </div>
     );
   }
