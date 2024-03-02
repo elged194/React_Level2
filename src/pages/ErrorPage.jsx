@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import "./ErrorPage.css"
+import "../Style/ErrorPage.css"
 const ErrorPage = () => {
   return (
     <>

@@ -2,7 +2,7 @@ import Header from "../comp/header";
 import Footer from "../comp/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
-import "./Foget.css";
+import "../Style/Foget.css";
 import Lodinge from "../comp/Lodinge";
 // -------------------------------------------------
 import { auth } from "../Firebase/Confog";

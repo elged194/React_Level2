@@ -1,5 +1,5 @@
 import Footer from "./Footer";
-import "./Lodinge.css"
+import "../Style/Lodinge.css"
 import Header from "./header";
 
 const Lodinge = () => {

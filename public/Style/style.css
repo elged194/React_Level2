@@ -20,7 +20,6 @@
 * {
   margin: 0;
   padding: 0;
-  /* color: white; */
 
   font-family: sans-serif;
 
@@ -49,9 +48,11 @@ h1 {
   padding: 20px;
   font-size: 25px;
 }
-a{
+
+a {
   color: #fff;
 }
+
 /* ===============
    1.  ul class .flex
 ================ */
@@ -182,7 +183,10 @@ footer {
   display: none;
 }
 
-/* ---------------------------Mode----------------------------------- */
+/* ==================
+    4. Mode 
+   ================== */
+
 h1 {
   margin: 0;
 
@@ -243,6 +247,36 @@ button {
   cursor: pointer;
 }
 
+.App.Dark main p {
+  color: #fff;
+}
+
+.App.Light main time {
+  color: #1b1b1b;
+}
+
+.App.Dark button {
+  color: #fff;
+}
+
+.App.Light button {
+  color: #1b1b1b;
+  border: 1px solid #777;
+}
+
+.App.Light form p,
+.App.Light form h1 {
+  color: #1b1b1b;
+}
+
+.App.Light main p {
+  color: #1b1b1b;
+}
+
+.App.Light form button:active {
+  color: #1b1b1b;
+}
+
 /* =======================================
    Level-2 {SignUp - SignIn}
 ======================================== */
@@ -270,11 +304,7 @@ form button {
 
 form button:active {
   background-color: transparent;
-  border: solid 2px  #777;
-}
-
-.App.Light form button:active{
-  color: #1b1b1b;
+  border: solid 2px #777;
 }
 
 form .account {
@@ -287,32 +317,13 @@ form .account a {
   color: #777;
 }
 
-.App.Light form p,.App.Light form h1  {
-  color: #1b1b1b;
-}
 
-.App.Light main p{
-  color: #1b1b1b;
-}
- main a{
+main a {
   text-decoration: underline;
   color: #777;
 }
-.App.Dark main p{
-  color: #fff;
-}
-.App.Light main time{
-  color: #1b1b1b;
-}
-.App.Dark button{
-  color: #fff;
-}
-.App.Light button{
-  color: #1b1b1b;
-  border: 1px solid #777;
-}
 
-main button:hover{
-    background-color: #777;
-    font-size: 15px;
+main button:hover {
+  background-color: #777;
+  font-size: 15px;
 }
