@@ -1,5 +1,6 @@
+// @ts-nocheck
 import { Helmet } from "react-helmet-async";
-import "../Style/ErrorPage.css"
+import "./ErrorPage.css"
 const ErrorPage = () => {
   return (
     <>
@@ -43,7 +44,7 @@ const ErrorPage = () => {
           <p>Click on the island to return</p>
         </div>
       </div>
-      ;
+      
     </>
   );
 };

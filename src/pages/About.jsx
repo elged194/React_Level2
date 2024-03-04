@@ -1,6 +1,5 @@
 import Header from "../comp/header";
 import Footer from "../comp/Footer";
-import Element from "../comp/element";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 // ---------------------------------------------------------
@@ -8,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../Firebase/Confog";
 import Lodinge from "../comp/Lodinge";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./Error/ErrorPage";
 // ---------------------------------------------------------
 
 const About = () => {
@@ -56,7 +55,7 @@ const About = () => {
           </Helmet>
 
           <Header />
-          <Element name="About" />
+          <main>About Page</main>
           <Footer />
         </div>
       );

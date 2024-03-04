@@ -1,33 +1,35 @@
-import Header from "../comp/header";
-import Footer from "../comp/Footer";
+import Header from "../../comp/header";
+import Footer from "../../comp/Footer";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
-import "../Style/Foget.css";
-import Lodinge from "../comp/Lodinge";
+import Lodinge from "../../comp/Lodinge";
+import "./signin.css"
 // -------------------------------------------------
-import { auth } from "../Firebase/Confog";
+import { auth } from "../../Firebase/Confog";
 import {
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "../Error/ErrorPage";
+import Model from "../../comp/shaird/model";
 // -------------------------------------------------
 
 const SignIn = () => {
   // --------------------------------------------------------------
   const navigate = useNavigate();
-
   const [user, loading, error] = useAuthState(auth);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [Error, setError] = useState("");
   const [showSendEmail, setShowSendEmail] = useState(false);
-  const [close, setClose] = useState("");
-  const [resetPass, serResetPass] = useState("");
-  // --------------------------------------------------------------
+
+  // ------------------ Level-3 ---------------------
+  const [resetPass, serResetPass] = useState(false);
+  const closeModel = () => {
+    serResetPass(false);
+  };
 
   // --------------- Reset Password Reset Email -------------------
   const handelFoget = (e) => {
@@ -110,7 +112,7 @@ const SignIn = () => {
   if (error) {
     return (
       <div>
-        <ErrorPage/>
+        <ErrorPage />
       </div>
     );
   }
@@ -133,22 +135,23 @@ const SignIn = () => {
 
         <main>
           {/* ------------------ form-1 --------------------- */}
-          <form className={`foget-password ${close}`}>
-            <div>
-              <i onClick={() => setClose("")} class="fa-solid fa-xmark"></i>
-            </div>
-
-            <input
-              onChange={(e) => serResetPass(e.target.value)}
-              required
-              placeholder="E-mail"
-              type="email"
-            />
-            <button onClick={handelFoget} className="reset-password">Reset Password</button>
-            {showSendEmail && (
-              <p className="massege">plesse check your email</p>
-            )}
-          </form>
+          {resetPass && (
+            // ------------------ Level-3 ---------------------
+            <Model closeModel={closeModel}>
+              <input
+                onChange={(e) => serResetPass(e.target.value)}
+                required
+                placeholder="E-mail"
+                type="email"
+              />
+              <button onClick={handelFoget} className="reset-password">
+                Reset Password
+              </button>
+              {showSendEmail && (
+                <p className="massege">plesse check your email</p>
+              )}
+            </Model>
+          )}
 
           {/* ------------------ form-2 ----------------------- */}
           <form>
@@ -172,7 +175,7 @@ const SignIn = () => {
               Don't have an account <Link to={"/signUp"}>Sign-Up</Link>
             </p>
 
-            <p onClick={() => setClose("show")} className="click-forget">
+            <p onClick={() => serResetPass(true)} className="click-forget">
               forget password?
             </p>
           </form>

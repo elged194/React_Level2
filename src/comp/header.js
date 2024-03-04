@@ -38,7 +38,7 @@ const Header = () => {
         {/* <i className="fa-regular fa-snowflake"></i> */}
         <i
           onClick={() => ChangMode(mode === "Light" ? "Dark" : "Light")}
-          class="fa-solid fa-moon"
+          className="fa-solid fa-moon"
         ></i>
         <i
           onClick={() => ChangMode(mode === "Light" ? "Dark" : "Light")}
@@ -68,7 +68,7 @@ const Header = () => {
           {user && (
             <li onClick={handelSignOut} className="main-list ">
               <NavLink className="main-link" to="/signIn">
-                <i class="fa-solid fa-right-from-bracket"></i>
+                <i className="fa-solid fa-right-from-bracket"></i>
               </NavLink>
             </li>
           )}

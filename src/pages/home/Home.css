@@ -1,0 +1,99 @@
+/* ==============================
+   Table Of Content 
+=================================
+ 1- optons (filtered data) 
+ 2- show all data
+ 3- Add  new task 
+*/
+
+
+/* ==============================
+   1- optons (filtered data) 
+=================================*/
+section {
+    margin: 10px 0;
+}
+
+.home {
+    flex-direction: column;
+}
+
+.home .parent-of-btn {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.parent-of-btn select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.App.Light .home .parent-of-btn select {
+    background-color: #777;
+    color: #fff;
+}
+
+/* ==============================
+   2- show all data
+=================================*/
+.home .all-tasks {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.home .all-tasks .one-task {
+    width: 300px;
+    border: solid 1px #777;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 200;
+    margin: 10px 1px;
+    transition: all 0.2s;
+}
+
+.home .all-tasks .one-task:hover {
+    border-left: solid 8px whitesmoke;
+    cursor: pointer;
+}
+
+.home .all-tasks .time {
+    text-align: right;
+}
+
+.home .all-tasks .one-task h3 {
+    text-align: center;
+}
+
+.home .all-tasks .one-task li {
+    list-style: inside;
+    text-align: start;
+}
+.App.Dark .all-tasks a{
+    color: #fff;
+}
+
+/* ==============================
+   3- Add  new task 
+=================================*/
+/* .home .add-new-task {} */
+
+/* ==============================
+   4- home-of-form
+=================================*/
+.home-of-form{
+    width: 85%;
+}
+.home-of-form .add-btn-of-items{
+    padding: 9px 15px;
+}
+.home-of-form .inp-of-title{
+    width: 100%;
+}

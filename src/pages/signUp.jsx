@@ -12,7 +12,7 @@ import {
 } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "./Error/ErrorPage";
 // ----------------------------------------------------------
 
 const SignUp = () => {

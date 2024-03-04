@@ -1,13 +1,14 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/home/Home";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
-import SignIn from "./pages/signIn";
+import SignIn from "./pages/Sign-in/signIn";
 import SignUp from "./pages/signUp";
-import ErrorPage from './pages/ErrorPage';
+import ErrorPage from './pages/Error/ErrorPage';
 // ---------------------------------------------------------------------
 import { useContext } from "react";
 import ThemeContext from "./comp/darkMode";
+import EditTask from "./pages/EditTask/EditTask";
 // ---------------------------------------------------------------------
 
 // ---------------------------------------------------------------------
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/Profile",
     element: <Profile />,
+  },
+  {
+    path: "/EditTask",
+    element: <EditTask />,
   },
 ]);
 // ---------------------------------------------------------------------

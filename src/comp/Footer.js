@@ -3,7 +3,7 @@
 const Footer = () => {
   return (
     <footer>
-      Designed and developed by Courses4Arab.com
+      Designed and developed by elged194@gmail.com
       <span>🧡</span>
     </footer>
   );
