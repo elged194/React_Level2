@@ -1,22 +1,27 @@
 import Header from "../../comp/header";
 import Footer from "../../comp/Footer";
 import { Helmet } from "react-helmet-async";
-// -----------------------------------------------
-import { auth } from "../../Firebase/Confog";
+// ------------------ / Level-2 /-----------------------------
+import { auth, db } from "../../Firebase/Confog";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import { sendEmailVerification } from "firebase/auth";
 import Lodinge from "../../comp/Lodinge";
 import ErrorPage from "../Error/ErrorPage";
-// -----------------Level-3------------------------------
+// -----------------/ Level-3 /------------------------------
 import "./Home.css";
 import { useState } from "react";
-import Model from "../../comp/shaird/model";
+import { doc, setDoc } from "firebase/firestore";
+import ModelHome from "./model_of_home";
+import AllTasksSecton from "./all_tasks_secton";
 // -----------------------------------------------
 
 const Home = () => {
-  // ----------------- Level-2 --------------------------
+  // ==========================================
+  //               / level-2 /
+  // ==========================================
   const [user, loading, error] = useAuthState(auth);
+
   // Sending Verificition Email
   const SendMassage = () => {
     // Sending Verificition Email
@@ -27,11 +32,65 @@ const Home = () => {
     });
   };
 
-  // ----------------- Level-3 --------------------------
-  const [resetPass, serResetPass] = useState(false);
+  // ==========================================
+  //  (-Start-) fanction of model  / level-3 /
+  // ==========================================
+  const [resetPass, serResetPass] = useState(false); //close model
+  const [titleTask, settitleTask] = useState(""); //
+  const [arr, setArr] = useState([]); // Array of model
+  const [inp, setInp] = useState(""); // input of model
+  const [subloding, setsubloding] = useState(false); // Lodining of button
+  const [showMassage, setshowMassage] = useState(false); // show massage
+
+  //close model
   const closeModel = () => {
     serResetPass(false);
+    setArr([]);
+    settitleTask("");
   };
+
+  // Add Items Of Button
+  const handelAdd = (e) => {
+    e.preventDefault();
+    // بيلغي تكرار العنصر
+    if (!arr.includes(inp)) {
+      arr.push(inp);
+    }
+    setInp("");
+  };
+
+  // submit Task Button
+  const submitTaskButn = async (e) => {
+    e.preventDefault();
+
+    setsubloding(true);
+
+    const taskId = new Date().getTime();
+    await setDoc(doc(db, user.uid, `${taskId}`), {
+      title: titleTask,
+      array: arr,
+      id: taskId,
+      completed: true,
+    });
+
+    setsubloding(false);
+    settitleTask("");
+    setArr([]);
+    serResetPass(false);
+
+    setshowMassage(true);
+
+    setTimeout(() => {
+      setshowMassage(false);
+    }, 2500);
+  };
+
+  const titleOfInput = (e) => settitleTask(e.target.value); // title Of Input
+  const itemsOfInput = (e) => setInp(e.target.value); // items Of Input
+
+  // ========================================
+  //  (-End-) fanction of model  / level-3 /
+  // ========================================
 
   // ----------------- Level-2 --------------------------
   // error
@@ -123,33 +182,7 @@ const Home = () => {
             </section>
 
             {/* show all data */}
-            <section className="all-tasks">
-              <article dir="auto" className="one-task">
-                <Link to={"/EditTask"}>
-                  <h3>Title</h3>
-
-                  <ul>
-                    <li>sub task 1</li>
-                    <li>sub task 2</li>
-                  </ul>
-
-                  <p className="time">a day ago</p>
-                </Link>
-              </article>
-
-              <article dir="auto" className="one-task">
-                <Link to={"/EditTask"}>
-                  <h3>Title</h3>
-
-                  <ul>
-                    <li>sub task 1</li>
-                    <li>sub task 2</li>
-                  </ul>
-
-                  <p className="time">a day ago</p>
-                </Link>
-              </article>
-            </section>
+            <AllTasksSecton user={user} />
 
             {/* Add  new task  */}
             <section className="add-new-task">
@@ -157,21 +190,31 @@ const Home = () => {
                 Add Tew Task <i className="fa-solid fa-plus"></i>
               </button>
             </section>
-          </main>
 
-          {/* ----------------- Level-3 -------------------------- */}
-          {resetPass && (
-            <Model closeModel={closeModel}>
-              <form className="home-of-form">
-                <input className="inp-of-title" type="text" placeholder="Title Task" required/>
-                <div className="flex">
-                  <input type="text" placeholder="Items Of Task" />
-                  <button onClick={(e)=> e.preventDefault()} className="add-btn-of-items">Add</button>
-                </div>
-                <button onClick={(e)=> e.preventDefault()}>Submit Task</button>
-              </form>
-            </Model>
-          )}
+            {/* ----------------- Level-3 -------------------------- */}
+            {resetPass && (
+              <ModelHome
+                closeModel={closeModel}
+                titleOfInput={titleOfInput}
+                titleTask={titleTask}
+                itemsOfInput={itemsOfInput}
+                inp={inp}
+                handelAdd={handelAdd}
+                arr={arr}
+                submitTaskButn={submitTaskButn}
+                subloding={subloding}
+              />
+            )}
+
+            {/* show-masseg */}
+            <div
+              style={{ right: showMassage ? "2vh" : "-100vh" }}
+              className="show-masseg"
+            >
+              Task Add successfully{" "}
+              <i className="fa-regular fa-circle-check"></i>
+            </div>
+          </main>
           <Footer />
         </div>
       );

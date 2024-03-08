@@ -90,10 +90,44 @@ section {
 =================================*/
 .home-of-form{
     width: 85%;
+    height: 75%;
 }
 .home-of-form .add-btn-of-items{
     padding: 9px 15px;
 }
+.home-of-form .add-btn-of-items:hover{
+    color: #333 !important;
+}
 .home-of-form .inp-of-title{
     width: 100%;
+}
+.home-of-form ul{
+    height: 40%;
+    overflow-y: auto;
+}
+.home-of-form ul li{
+    color: #333;
+    list-style: inside;
+    list-style-position: inside;
+}
+.submit-task-butn{
+    display: flex;
+    justify-content: center;
+}
+.submit-task-butn:hover{
+    background-color: #777 !important;
+    color: #fff !important;
+}
+.home .show-masseg{
+    background-color: whitesmoke;
+    padding: 5px 10px ;
+    color: teal;
+    font-weight: 500;
+    border-radius: 7px;
+    position: fixed;
+    top: 100px;
+    transition: all 1s;
+}
+.home .fa-circle-check{
+    color: teal;
 }

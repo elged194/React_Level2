@@ -102,7 +102,25 @@
 .edit-btn .fa-plus {
   margin-left: 8px;
 }
+/* ----- add-new-task --------- */
+.add-new-task-items{
+  background-color: #777;
+  margin: 4px;
+    padding: 0 5px;
+}
+.Cancel{
+  background-color: tomato;
+  border: none;
+}
+.add{
+  background-color: #282c34;
+  border: none;
+  margin-left: 10px;
+}
+.Cancel:hover, .add:hover{
+  transform: scale(1.1);
 
+}
 /* =======================
   4- Light Mode 
 =========================*/
@@ -123,3 +141,4 @@
 .App.Light .edit-task .sub-items:hover {
   border-left: solid 5px tomato;
 }
+

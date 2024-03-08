@@ -79,6 +79,7 @@ const Model = ({ closeModel, children }) => {
         }
         `}</style>
       </Helmet>
+
       <form className="model">
         <div>
           <i onClick={() => closeModel()} className="fa-solid fa-xmark"></i>
@@ -86,6 +87,7 @@ const Model = ({ closeModel, children }) => {
 
         {children}
       </form>
+      
     </div>
   );
 };
